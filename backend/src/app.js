@@ -27,13 +27,12 @@ const allowedOrigins = [
   "http://localhost:5173",                        // local frontend
   "https://dev-tinder-fuzq.vercel.app",     // deployed Vercel URL (replace this)
 ];
-
-app.use(
-  cors({
-    origin: allowedOrigins,
-    credentials: true,
-  })
-);
+res.cookie("token", token, {
+  httpOnly: true,
+  secure: true, // ✅ MUST be true on HTTPS
+  sameSite: "None", // ✅ MUST be 'None' if frontend and backend are on different domains
+  maxAge: 1000 * 60 * 60 * 24 * 7,
+});
 
 
 // Routes
