@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(cookieParser());
 const allowedOrigins = [
   "http://localhost:5173",                        // local frontend
-  "https://your-vercel-frontend.vercel.app",     // deployed Vercel URL (replace this)
+  "https://dev-tinder-2g5e.vercel.app",     // deployed Vercel URL (replace this)
 ];
 
 app.use(
