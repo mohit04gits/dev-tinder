@@ -23,12 +23,18 @@ initializeSocket(server); //calling with server
 // Middleware
 app.use(express.json());
 app.use(cookieParser());
+const allowedOrigins = [
+  "http://localhost:5173",                        // local frontend
+  "https://your-vercel-frontend.vercel.app",     // deployed Vercel URL (replace this)
+];
+
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: allowedOrigins,
     credentials: true,
   })
 );
+
 
 // Routes
 app.use("/", authRouter);
